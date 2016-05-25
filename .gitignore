@@ -170,3 +170,4 @@ TSWLatexianTemp*
 *.docx
 *.pdf
 *.m
+!pubs.bbl

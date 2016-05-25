@@ -5,7 +5,7 @@
 % Version 1.1 released 14/07/2010
 %-------------------------- identification ---------------------
 %\NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Tex/CUEDthesisPSnPDF-Summan}[2010/07/14 v1.1 CUED thesis class]
+\ProvidesClass{Tex/CUEDthesisPSnPDF-Lardner}[2010/07/14 v1.1 CUED thesis class]
 %-------------------------- initial code -----------------------
 \newif\ifCU@bookmode
 \CU@bookmodetrue
