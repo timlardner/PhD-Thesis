@@ -1,0 +1,102 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{$\alpha$}]\begingroup Unit of attenuation ($Np\cdot m^{-1}$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$\beta$}]\begingroup Bulk modulus of elasticity ($Pa$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$\Delta x$}]\begingroup Pixel pitch ($m$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$\Delta$}]\begingroup Wave propagation delay ($s$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$\dot{u}$}]\begingroup Particle velocity ($m\cdot s^{-1}$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$\epsilon$}]\begingroup Strain\nomeqref {0}\nompageref{1}
+  \item [{$\kappa$}]\begingroup Lam\'{e}'s first parameter ($Pa$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$\lambda$}]\begingroup Wavelength ($m$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$\nu$}]\begingroup Poisson's ratio\nomeqref {0}\nompageref{1}
+  \item [{$\omega$}]\begingroup Angular velocity ($rad\cdot s^{-1}$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$\psi$}]\begingroup Sample index\nomeqref {0}\nompageref{1}
+  \item [{$\rho$}]\begingroup Material density ($Kg\cdot m^{-3}$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$\sigma$}]\begingroup Stress ($Pa$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$\theta$}]\begingroup Angle ($rad$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$A$}]\begingroup Amplitude\nomeqref {0}\nompageref{1}
+  \item [{$a$}]\begingroup Acceleration ($m\cdot s^{2}$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$A(w)$}]\begingroup Attenuation ($dB\cdot m^{-1}$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$A_c$}]\begingroup A complex number representing amplitude and phase\nomeqref {0}
+		\nompageref{1}
+  \item [{$A_{cs}$}]\begingroup Cross sectional area ($m^2$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$B$}]\begingroup Amplitude\nomeqref {0}\nompageref{1}
+  \item [{$B_D$}]\begingroup Beam divergence\nomeqref {0}\nompageref{1}
+  \item [{$B_j$}]\begingroup Phase delay\nomeqref {0}\nompageref{1}
+  \item [{$C$}]\begingroup Centre of the signal to be cross-correlated\nomeqref {0}
+		\nompageref{1}
+  \item [{$c$}]\begingroup Wave frequency ($Hz$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$D$}]\begingroup Delay to be applied for CAFI\nomeqref {0}
+		\nompageref{1}
+  \item [{$d$}]\begingroup The number of lags required to maximise $p$\nomeqref {0}
+		\nompageref{1}
+  \item [{$d_c$}]\begingroup The value of $d$ for the centre element(s) of the array\nomeqref {0}
+		\nompageref{1}
+  \item [{$D_F(\omega)$}]\begingroup Directivity of transducer\nomeqref {0}
+		\nompageref{1}
+  \item [{$E$}]\begingroup Young's modulus ($Pa$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$F$}]\begingroup Axial force ($N$)\nomeqref {0}\nompageref{1}
+  \item [{$G$}]\begingroup Modulus of rigidity ($Pa$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$H$}]\begingroup Additional weighting for SASACI if $p(x,y) < T$\nomeqref {0}
+		\nompageref{1}
+  \item [{$h$}]\begingroup Full Matrix Capture dataset\nomeqref {0}
+		\nompageref{1}
+  \item [{$k$}]\begingroup Wavenumber\nomeqref {0}\nompageref{1}
+  \item [{$m$}]\begingroup Mass ($Kg$)\nomeqref {0}\nompageref{1}
+  \item [{$n_{el}$}]\begingroup Number of elements in a given array\nomeqref {0}
+		\nompageref{1}
+  \item [{$P$}]\begingroup Pressure ($Pa$)\nomeqref {0}\nompageref{1}
+  \item [{$p$}]\begingroup Cross-correlation coefficient\nomeqref {0}
+		\nompageref{1}
+  \item [{$R$}]\begingroup Reflection coefficient\nomeqref {0}
+		\nompageref{1}
+  \item [{$r_j(x,z)$}]\begingroup Distance to array element $j$ from point $(x,z)$ ($m$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$RX$}]\begingroup The input to a cross-correlation algorithm\nomeqref {0}
+		\nompageref{1}
+  \item [{$S$}]\begingroup Number of pixels used for cross correlation\nomeqref {0}
+		\nompageref{1}
+  \item [{$T$}]\begingroup Transmission coefficient\nomeqref {0}
+		\nompageref{1}
+  \item [{$t$}]\begingroup Time ($s$)\nomeqref {0}\nompageref{1}
+  \item [{$TxPx$}]\begingroup A given transmitting element and a specific pixel to be imaged\nomeqref {0}
+		\nompageref{1}
+  \item [{$u$}]\begingroup Particle displacement ($m$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$V$}]\begingroup An ideal point reflector\nomeqref {0}
+		\nompageref{1}
+  \item [{$v_L$}]\begingroup Longitudinal wave propagation velocity ($m\cdot s^{-1}$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$v_S$}]\begingroup Shear wave propagation velocity ($m\cdot s^{-1}$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$W$}]\begingroup Weighting applied to a dataset\nomeqref {0}
+		\nompageref{1}
+  \item [{$w$}]\begingroup Transducer width ($m$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$X$}]\begingroup SASACI threshold\nomeqref {0}\nompageref{1}
+  \item [{$x$}]\begingroup Distance ($m$)\nomeqref {0}\nompageref{1}
+  \item [{$x_j^\prime$}]\begingroup Distance from array element $j$ to the array centre ($m$)\nomeqref {0}
+		\nompageref{1}
+  \item [{$Z$}]\begingroup Acoustic impedance ($Pa\cdot s\cdot m^{-3}$)\nomeqref {0}
+		\nompageref{1}
+
+\end{thenomenclature}

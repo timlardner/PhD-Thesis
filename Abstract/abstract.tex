@@ -1,0 +1,25 @@
+
+%!TEX root = ../Thesis.tex
+% Thesis Abstract -----------------------------------------------------
+
+\begin{abstracts}   
+\onehalfspacing
+The push for more efficient operation of power generation stations has led to the development of advanced alloys designed to cope with the stresses of running at elevated temperatures. The micro-structure of these new alloys makes the inspection process difficult due to large grains that scatter ultrasonic energy. Aerospace components such as aircraft engine turbine blades are made from similar materials and pose the same difficulties for inspection. In addition, the complex geometries of many of these parts hinder the use of existing advanced imaging methodologies. 
+
+The current inspection process involves using both individual transducers and phased arrays to collect pulse-echo data from structures. This process is not sufficient for such difficult materials and a new process must be devised, tested and deployed.
+
+This thesis presents an investigation of new practical techniques to process ultrasonic array data collected via a Full Matrix Capture.  Two novel signal processing techniques are presented, evaluated and compared to the Total Focusing Method, which is currently considered as the gold standard in ultrasonic array processing. A study into efficient imaging has also been completed, which involved development of an algorithm to focus upon any point through an arbitrary refracting interface. This algorithm was implemented on a commercially available graphics card and is able to account for a curved interface in real time with no prior knowledge of the surface profile.
+
+Spatially Averaged Sub-Aperture Correlation Imaging splits the full matrix of data into a set of sub-apertures which are imaged independently from each other. These images are then combined into two sets and are input to a two-dimensional cross-correlation algorithm that outputs a weighting matrix that can be applied to the sum of all images. Signals that are from legitimate reflectors are highly correlated while less-correlated indications are the result of noise from scattering and multi-path propagation. SASACI has been shown to perform well experimentally through inspection of defects within multiple highly scattering welds at a frequency of 5 MHz.
+
+Correlation for Adaptively Focused Imaging aims to correct for aniso-tropy within difficult materials. The longitudinal velocity within a difficult material can vary with position and using an average velocity does not guarantee a well-focused image. For each pixel in an image, CAFI calculates which samples will be used to calculate the amplitude of the pixel before cross-correlating the signals from adjacent array elements and shifting the delay to the point of maximum focus. This methodology is effective when a small area with a known reflector is being imaged, and for this reason the algorithm is suited to characterisation of reflectors. This technique was experimentally validated on a block of Inconel 625 with a number of side-drilled holes.
+\end{abstracts}
+
+
+% ----------------------------------------------------------------------
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 

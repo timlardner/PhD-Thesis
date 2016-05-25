@@ -1,0 +1,64 @@
+%!TEX root = ../Thesis.tex
+% \pagebreak[4]
+\chapter{Outlook and Conclusion}
+
+\section{Analysis of Results}
+A number of novel computational methodologies have been introduced and evaluated in this thesis. Each methodology has its advantages and disadvantages as well as potential for future research and improvements on the technique. These methodologies will be discussed in the context of the thesis as a whole and related to the industrial problem described in Section \ref{sec:motivation}.
+
+The rapid TFM implementation introduced in Chapter \ref{chap:cuetfm} is a solution to two problems encountered in NDE within industry. Firstly, it allows for advanced signal processing methods to run in real-time for directly coupled inspections. This means that operators using these advanced imaging techniques receive immediate feedback. This is a feature currently offered by commercial equipment manufacturers, but only for traditional imaging approaches. The second problem it solves is the inspection of curved components using either immersion or a conformable wedge. In these scenarios, the array is not in direct contact with the surface and refraction will occur. Unlike traditional delay-and-sum imaging, pre-calculating focal laws for TFM-based imaging approaches was not previously practical due to the time required for computation. 
+
+A major drawback of this method is the specific hardware required. The presented technique is written in the NVidia's proprietary CUDA programming language and is therefore confined to running on NVidia graphics cards. Algorithms that make use of this approach to imaging are therefore limited to hardware supporting NVidia GPUs, i.e. desktop PCs or high-end laptops. Section \ref{sec:future_tfm} discusses ways that this technique can be further developed and improved, and will address this limitation. Another drawback of using the CUDA programming language is the expertise required to modify and debug the code. The work presented in Chapter \ref{chap:cuetfm} demonstrates the TFM algorithm running at a high speed and with refraction, but SASACI uses a modified version of this in order to exploit the acceleration offered by using commercial graphics cards. A PCI\cite{camacho_phase_2009} implementation for CUDA also exists using this approach. Many more existing imaging approaches can benefit from this, but modification of the CUDA kernel is not trivial. 
+
+SASACI, introduced in Chapter \ref{chap:SASACI}, is shown to perform better than the current `gold standard' of ultrasonic imaging on an industrially relevant sample. It has been shown to improve on SNR using a range of different parameters for SASACI. The presented imaging algorithm reduces the difficulties associated with inspecting materials with coarse grains. It has reduced background noise in a number of different imaging scenarios leading to increased clarity of defects. SASACI requires parameter settings which need to be fine-tuned in order to achieve an optimal result. At the moment, a trial-and-error approach is used to optimise these parameters.
+
+The CAFI algorithm, introduced in Chapter \ref{chap:CAFI}, has advantages and disadvantages compared to SASACI and other imaging algorithms. CAFI uses no thresholding and therefore is not sensitive to the setting of this parameter. It also offers the potential of a sharper image resulting from an increased quality of focusing. CAFI is, however, sensitive to the speckle noise exhibited by grains in difficult materials. This can cause the algorithm to attempt to adjust focus onto the speckle. The best results have been observed when the CAFI algorithm has been used for image enchancement of an area already known to contain a defect.
+
+\section{Acoustic Research Toolbox}
+
+A software package has been created as both an inspection tool and a platform to demonstrate the imaging algorithms discussed in this thesis. This package has been named cueART (Centre for Ultrasonic Engineering Acoustic Research Toolbox). cueART is a LabVIEW-based program designed to enable non-expert users to use advanced imaging algorithms and view results in real-time. It supports a multitude of phased array controllers and is designed to be easily modified. Multiple advanced post-processing algorithms have already been implemented, including SASACI and PCF, and this software is a work-in-progress with functionality being continually added.
+
+A key weakness of this thesis is the fact that the algorithms presented are not compared to each other. If SASACI and CAFI were implemented within an imaging platform, such as cueART, an in-depth comparison can be made between the two techniques and they can be evaluated against each another.
+
+In its current state, SASACI and TFM are both functional and use the rapid imaging process described in Chapter \ref{chap:cuetfm}, thus they can be used while accounting for refraction. The software allows the user to modify any imaging parameters on the fly to enable fine-tuning of algorithms. Users can also switch seamlessly between the imaging techniques for quick and easy comparison between output images. This software also interfaces with a robotic system (Kuka, Germany) and can be used for automated inspection of large components\cite{brown_automated_2015}.
+
+Future work for this platform involves integrating live surface recognition so that arbitrary surfaces can be accounted for in real-time on a moving array. This will allow for rapid sector scanning of industrial components.
+
+\section{Future Work}\label{sec:future}
+
+\subsection{Rapid Ultrasonic Imaging}\label{sec:future_tfm}
+Detailed error analysis shows that the peak inherent error of the interpolant always occurs near the top of the Z-line, that is, where the non-linearity of the $f(z)$ function is the highest. One could exploit this fact and split the TFM volume into two zones, with separate interpolant coefficient databases. Since Phases 1 and 2 take a small fraction of time taken by Phase 3, this would allow the interpolant for each zone to better adhere to the original $f(z)$ function, possibly reducing the required interpolant order, at a very small extra computational cost.
+
+In the current implementation, the full time of flight is calculated for each A-scan as a sum of Tx-to-pixel and pixel-to-Rx time of flight. At this point, if the database contains a series of A-scans gathered using the same Tx, the Tx-to-pixel time of flight value could be cached and only recalculated when advancing to the next Tx element. In general, depending on the exact Tx/Rx firing scheme, a range of interpolant caching scenarios or symmetry scenarios could be employed. It is anticipated that in a practical NDE imaging scenario, only a subset of the FMC will be actually needed to obtain sufficient image contrast; in such a case, the field is open for research on optimal firing schemes and related time of flight caching schemes.
+
+This approach to imaging currently uses a lot of proprietary CUDA techniques that limit the platforms on which this code can run. In the future, the methodology could be ported to OpenCL, a parallel programming language that supports multiple platforms and architectures.
+
+\subsection{Spatially Averaged Sub-Aperture Correlation Imaging}\label{sec:future_sasaci}
+The SASACI imaging technique has been shown to increase SNR in noisy images, but has a user defined threshold. Any areas with a cross-correlation coefficient below the threshold are further minimised. The threshold is set manually and requires some trial-and-error to find an ideal value for each inspection. There is potential for the threshold parameter to be automatically tuned so that the algorithm can intelligently select a value for this parameter by sweeping through a range of values and selecting the one which results in the most optimal image.
+
+The Receiver Operator Characteristic (ROC) can be used to assess the performance of inspection methods. The performance of SASACI has not yet been assessed in this way but for a detailed comparison between different imaging methods, ROC should be used\cite{van_pamel_methodology_2014}. 
+
+One of the aspects of SASACI not fully explored is the random apodisation technique. A number of random array configurations have been created and used for imaging. As expected, the results vary depending on the array elements chosen for each permutation. Data could be collected from a calibration block with known reflectors and imaged using a range of permutations until the SNR has been optimised. This is possible by using either a genetic algorithm or a brute force approach. 
+
+\subsection{Correlation for Adaptively Focused Imaging}
+Correlation for Adaptively Focused Imaging has shown potential to improve focus in scenarios where the speed of sound is not constant throughout a material. Currently the algorithm is implemented in MATLAB and takes a significant amount of time (in the order of hours for a small image) is required to generate results. This limits the size and resolution of images being generated by the algorithm. SASACI has been implemented successfully in CUDA and can be run using GP-GPU processing. CAFI can be implemented in the same way, removing the limitation of resolution and allowing for real-time processing of data. Real-time processing will make the technique industrially viable.
+
+Finite element simulation can be used to model a range of scenarios quickly and efficiently. It can be used to test how CAFI copes with different situations. CAFI can be refined and improved by analysing the result from these modelling scenarios.
+
+Using the full CAFI methods, different corrected images are produced using phase-based correction and amplitude-based correction. At the moment, the technique uses cross-correlation to extract information from this pair of images. There are other comparison methods which have not been investigated in this thesis, such as the Best Linear Unbiased Estimator (BLUE) technique\cite{fjortoft_optimal_1998}.
+
+\section{Overall Conclusion}
+The aim of this thesis is to present an investigation into signal-processing based solutions for the problem of inspecting difficult materials using ultrasound arrays.
+
+An approach to imaging through non-flat surfaces was presented which allows compensation for refraction in real-time. This is a significant improvement on similar techniques that require either prior knowledge of the sample or more data than a single FMC.
+
+Two signal processing methods for image generation have been presented which are novel and tackle the problem of inspecting materials with large grains or anisotropy. Experimental results have been obtained from industrially relevant samples for each of these techniques, and the results discussed with varying degrees of success. 
+
+In summary, signal processing can be used with traditional data-gathering techniques to improve the quality of ultrasonic imaging and increase the probability of locating defects. Each of the methodologies presented in this thesis are effective and have potential to be explored further via future research.
+
+% ------------------------------------------------------------------------
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 

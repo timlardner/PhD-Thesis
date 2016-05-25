@@ -1,0 +1,19 @@
+
+\documentclass[plain]{article}
+\usepackage{multirow}
+\usepackage[left=40mm, right=25mm, top=35mm, bottom=55mm]{geometry}
+\pagestyle{empty}
+\begin{document}
+\begin{tabular}{|p{2.5mm}|p{40mm}|p{40mm}|l|l|l|}\hline
+  & Phase Name & Options & Platform & Performance Unit & Result \\ \cline{1-6}
+	1 & \multirow{3}{*}{\parbox{40mm}{Phase 1 - Calculating prototype Time of Flight points}} & Planar interface z=0 & GPU & \multirow{1}{*}{Points/second $\times 10^6$} & 77.9 \\[15pt] \cline{1-1} \cline{3-4} \cline{6-6} 
+	2 & & Planar interface z=0 & CPU & & \\[15pt] \cline{1-1} \cline{3-4} \cline{1-6}
+	3 & \multirow{3}{*}{\parbox{40mm}{Phase - 2 - Transform from time points set into interpolant coefficients}} & 8 points into 5th order, fast solver & GPU & \multirow{1}{*}{Lines/second $\times 10^3$} & 23 538 \\ \cline{1-1} \cline{3-4} \cline{6-6}
+  4 & & 8 points into 5th order, fast solver & CPU & & 2 960 \\ \cline{1-1} \cline{3-4} \cline{6-6}
+	5 & & 8 points into 5th order, QR solver & CPU & & 70 \\ \cline{1-1} \cline{3-4} \cline{6-6}
+	6 & & Double precision, 14 points into 7th order, QR solver & CPU & & 68.5 \\ \cline{1-6}
+	7 & Phase 3 - TFM integration & Nearest sample interpolation & GPU & Paths/second $\times 10^9$ & 26.7 \\ \cline{1-6}
+\end{tabular}
+
+\end{document}
+

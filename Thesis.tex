@@ -1,0 +1,69 @@
+\documentclass[oneside,12pt]{Tex/CUEDthesisPSnPDF-Lardner}
+\usepackage{titlesec}
+\usepackage{Tex/watermark}
+\usepackage{verbatim}
+\usepackage[left=40mm, right=25mm, top=35mm, bottom=55mm]{geometry}
+\usepackage{mathtools}
+\usepackage{cleveref}
+\usepackage{float}
+\usepackage[defaultlines=3,all]{nowidow}
+\usepackage{soul}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{multirow}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage[intoc]{nomencl}
+\usepackage{enumerate}
+\usepackage[textfont=it,labelfont=bf]{caption}
+\titleformat{\chapter}[display]   
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
+\titlespacing*{\chapter}{0pt}{-50pt}{40pt}
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+\title{New Algorithms for Ultrasonic\\Non-Destructive Evaluation}
+\author{Timothy Lardner}
+\collegeordept{Department of Electronic and Electrical Engineering}
+\university{University of Strathclyde}
+\crest{\includegraphics[width=28mm]{Images/UnivShield}}
+\degree{Doctor of Philosophy}
+\degreedate{2016}
+\hbadness=10000
+\hfuzz=50pt
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\makenomenclature
+\doublespacing
+\begin{document}
+\maketitle
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\frontmatter
+\pagenumbering{roman}
+\include{Copyright/copyright}
+\include{Dedication/dedication}
+\include{Acknowledgement/acknowledgement}
+\include{Abstract/abstract}
+\doublespacing
+\tableofcontents
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex plus 0.5ex minus 0.2ex}
+\listoffigures
+\listoftables
+\cleardoublepage 
+\renewcommand{\nomname}{List of Symbols}
+\markboth{\MakeUppercase\nomname}{\MakeUppercase\nomname}  
+\printnomenclature[2.5cm]  
+\mainmatter
+\include{Nomen/nomen}
+\include{Introduction/Introduction}
+\include{Review/Review}
+\include{cueTFM/cueTFM}
+\include{SASACI/SASACI}
+\include{CAFI/CAFI}
+\include{Discussion/Discussion}
+\backmatter
+\bibliographystyle{Tex/ieeetr-tim}
+\renewcommand{\bibname}{References}
+\bibliography{References} 
+\end{document}

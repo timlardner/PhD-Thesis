@@ -1,0 +1,56 @@
+%!TEX root = ../Thesis.tex
+% \pagebreak[4]
+\chapter{Introduction}
+
+\section{Motivation for the Work}\label{sec:motivation}
+Non-destructive testing is an essential component of modern engineering. The structural integrity of safety critical components such as aircraft wings, turbine blades and high-pressure pipes must be verified at both the time of manufacture and throughout the life of the component\cite{zhao_active_2007}. There is a strong drive in industry to save costs wherever possible while maintaining safety\cite{roscoe_cost-effective_1995}. 
+
+For `next generation' fossil-fuelled power generation stations, greater efficiencies can be gained through burning fuel at an increased temperature\cite{viswanathan_u.s._2005,novikov_efficiency_1958}. A greater efficiency of operation leads to reduced fuel costs and less carbon emission\cite{viswanathan_materials_2006,descamps_efficiency_2008}. Generating steam at this increased temperature means that the infrastructure will need to be resistant to the potential corrosion that will occur at increased pressures\cite{ennis_recent_2003,viswanathan_materials_2001}. New `superalloys' have been developed that are suited to environments that will subject the metal to extremes of pressure and heat due to their mechanical strength and resistance to corrosion\cite{hayner_next_2004,masuyama_history_2001,klueh_ferritic/martensitic_2007}. These alloys typically have grains that are large enough to interact with the ultrasonic waves used for non-destructive testing\cite{jiang_grain_1998}. These grains scatter ultrasonic energy and hinder inspection\cite{was_influence_1981}. Aircraft engine turbines also need to be resistant to a large amount of stress and are manufactured from similar alloys that are difficult to inspect ultrasonically. It must be stated that while these advanced alloys are more resistant to the stresses of high pressure operation, flaws do appear in these materials and thus they must be regularly inspected\cite{diboine_creep_1987,ford_development_1988,ennis_microstructural_1997}.
+
+The materials that `current generation' power generation stations use in their steam piping pose different inspection challenges compared to new power stations. Many existing power stations are reaching their end-of-life that was designated at the time of manufacture\cite{de_witte_power_1989}. A large proportion of these stations are undergoing life-extension programmes to ensure their structural integrity for continued operation\cite{thomas_power-plant_1988,dominelli_life_2006,ellerman_note_1998}. These power stations require regular inspections to find any flaws\cite{ray_residual_2000}. Potential defects in these structures include voids and creep corrosion, which is small cavities in the micro-structure of a material and is caused by prolonged exposure to high temperatures or pressure\cite{tong_creep_2001}. Creep damage spreads slowly throughout a structure and does not generally pose a risk to the structural integrity of a component until the voids reach a critical size\cite{rice_mechanics_1976}. For this reason, it is important to accurately monitor the growth of creep damage and to fastidiously record all defects within a component so that structural engineers can make a decision about whether or not to replace it\cite{saniie_life_1990}. In order to detect and size potentially small defects, a sufficiently high interrogation frequency (and therefore small wavelength, given the two properties are inversely proportional) must be used to ensure that these defects will reflect a significant portion of the incident energy\cite{sehgal_diffraction_1984,sposito_review_2010}. Furthermore, there are a number of welded components with complex geometries that hinder contact inspection.
+
+For the aforementioned cases there are difficulties with conventional ultrasonic inspection. The problem of high rates of attenuation can be overcome by using probes with a larger surface area to receive more energy and higher sensitivity of receivers coupled with low-noise amplifiers\cite{drinkwater_ultrasonic_2006}. The problem of scattering can be overcome by inspecting components at a lower frequency, but at the expense of resolution. Imaging components through complex geometries can be done via pre-calculation of focal laws. This process is time consuming and does not allow for modifying these focal laws once set. This thesis presents a number of signal-processing-based approaches for overcoming these difficulties without significantly reducing resolution, sensitivity or the time taken to generate results.
+
+
+
+\section{Contributions to Knowledge}
+
+\begin{itemize}
+	\item A novel process has been developed that allows rapid generation of images from recorded ultrasonic signals, while accounting for refraction. This process was developed in collaboration with Dziewierz and McGilp.
+
+	My contribution to this work is the idea to split the depth in the imaging volume to a number of discrete points and interpolating for each pixel. I also worked on the optimisation algorithm that calculates the time of flight for a given set of parameters. These times of flight are input to a function, that converts them to a set of polynomial coefficients that are passed to the imaging algorithm. This imaging algorithm was initially developed by Dziewierz for inspecting materials through a flat interface, and was modified to use the aforementioned coefficients. McGilp developed the surface recognition methodology that allows for the arbitrary surface imaging process.
+
+	\item A new imaging algorithm, Spatially Averaged Sub-Aperture Correlation Imaging (SASACI), was developed to produce images with reduced structural noise compared to standard TFM images. This process was inspired by medical imaging literature where cross-correlation has been successfully used to improve signal-to-noise ratio.
+
+	This technique is novel, as cross-correlation of images from different array sub-apertures to improve TFM-based imaging has not been reported in the literature.
+
+	\item Correlation for Adaptively Focused Imaging (CAFI) is a second novel methodology that uses cross-correlation to improve ultrasonic imaging of NDE datasets.
+
+	This technique uses cross-correlation to correct focusing in cases where the speed of sound in a material is not well defined. This can occur in anisotropic materials where a ray of sound may not take a straight path through a component, or simply in structures where the speed of sound varies throughout. Using an average velocity will result in a poor focus and an inability to accurately size defects. CAFI is shown to overcome this limitation.
+\end{itemize}
+
+\section{List of Publications}
+\begin{itemize}
+\input{pubs2.bbl}
+\end{itemize}
+\section{Structure of Thesis}
+
+This body of work is presented over six chapters. This chapter serves as an introduction to the work and introduces the concept of `difficult materials' and the problems that arise during their inspection. It puts the thesis into context and outlines the novelties of the work completed. 
+
+Chapter two is a review of traditional imaging techniques. It starts with the wave equation being derived from first principles. Well-known laws that govern waves, such as Snell's law and Huygens' principle, are also explained. Basic single-element ultrasonic probes are introduced and the concept of arrays explained. Array imaging is also considered and conventional imaging methodologies are explained. From here, more advanced techniques are discussed.	Finally, the concepts of both mathematical and finite element modelling are introduced and the benefits of each discussed.
+
+Chapter three tackles the issue of performing the Total Focusing Method through an interface, accounting for refraction and delivering real-time imaging performance. An interpolation and curve-fitting method is used to calculate propagation times with improved accuracy compared to traditional methods. This methodology is evaluated for both its imaging speed and its ability to create an accurate image through a curved or arbitrarily shaped interface. 
+
+Chapter four introduces a novel signal processing technique that can be used to reduce speckle noise in ultrasonic images. The technique operates on the premise that grain noise differs when inspecting from different locations whereas the response from legitimate flaws will remain the same. An existing imaging process is used as a benchmark and both the methodology and results are compared to that of the Total Focusing Method. The signal-to-noise ratio is used as a metric of performance and the proposed technique shows improvement over the benchmark.
+
+Chapter five expands on the premise of using cross-correlation to improve ultrasonic imaging within difficult materials. A technique is proposed that can compensate for a varying wave propagation velocity within a material. The problem, which occurs in anisotropic materials, is explained and the proposed solution thoroughly explored. The solution is verified experimentally with an industrially relevant sample and results show the proposed technique is able to improve on currently used imaging methods.
+
+Chapter six discusses the results of the thesis as a whole. The findings from each of the three novel methodologies introduced in this thesis are summarised and potential improvements to each are evaluated. Finally, potential areas of future work are discussed.
+
+% ------------------------------------------------------------------------
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 
